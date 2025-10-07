@@ -1,13 +1,311 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+   /* Basic Reset and Global Styles */
+   * {
+     box-sizing: border-box;
+   }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+   body {
+     margin: 0;
+     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     background: linear-gradient(to bottom right, #eff6ff, #e0e7ff);
+     min-height: 100vh;
+   }
+
+   /* App Container */
+   .app-container {
+     min-height: 100vh;
+     padding: 24px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+
+   .content-wrapper {
+     max-width: 1024px;
+     width: 100%;
+     margin: 0 auto;
+   }
+
+   /* Cards */
+   .main-card, .info-card {
+     background: white;
+     border-radius: 12px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     margin-bottom: 24px;
+     overflow: hidden;
+   }
+
+   .card-header {
+     text-align: center;
+     padding: 24px;
+     background: #f8fafc;
+   }
+
+   .title {
+     font-size: 2rem;
+     color: #3730a3;
+     font-weight: bold;
+     margin: 0 0 8px 0;
+   }
+
+   .description, .info-title {
+     font-size: 1.125rem;
+     color: #6b7280;
+     margin: 0;
+   }
+
+   .info-title {
+     font-size: 1.25rem;
+     color: #3730a3;
+   }
+
+   .card-content {
+     padding: 24px;
+   }
+
+   /* Microphone Section */
+   .mic-section {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-bottom: 24px;
+   }
+
+   .mic-wrapper {
+     position: relative;
+     display: inline-block;
+   }
+
+   .mic-button {
+     width: 96px;
+     height: 96px;
+     border-radius: 50%;
+     border: none;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     font-size: 2rem;
+   }
+
+   .mic-button.idle {
+     background: #dbeafe;
+     color: #3730a3;
+   }
+
+   .mic-button.idle:hover {
+     background: #bfdbfe;
+   }
+
+   .mic-button.listening {
+     background: #fee2e2;
+     color: #dc2626;
+     animation: pulse 2s infinite;
+     box-shadow: 0 0 0 4px #fecaca;
+   }
+
+   .mic-icon {
+     font-size: 2rem;
+   }
+
+   .listening-indicator {
+     position: absolute;
+     top: -8px;
+     right: -8px;
+     width: 20px;
+     height: 20px;
+     border-radius: 50%;
+     background: #dc2626;
+     animation: pulse 1s infinite;
+   }
+
+   .mic-status {
+     font-size: 0.875rem;
+     color: #6b7280;
+     margin-top: 8px;
+     text-align: center;
+   }
+
+   /* Input Section */
+   .input-section {
+     margin-bottom: 16px;
+   }
+
+   .input-label {
+     display: block;
+     color: #374151;
+     margin-bottom: 8px;
+     font-weight: bold;
+   }
+
+   .query-input {
+     width: 100%;
+     padding: 16px;
+     font-size: 1.125rem;
+     border: 1px solid #d1d5db;
+     border-radius: 8px;
+     transition: border-color 0.2s;
+   }
+
+   .query-input:focus {
+     outline: none;
+     border-color: #4f46e5;
+     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+   }
+
+   .query-input:disabled {
+     background: #f9fafb;
+     cursor: not-allowed;
+   }
+
+   .search-button-wrapper {
+     text-align: right;
+     margin-top: 8px;
+   }
+
+   .search-button {
+     background: #4f46e5;
+     color: white;
+     padding: 12px 24px;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     font-size: 1rem;
+     transition: background 0.2s;
+   }
+
+   .search-button:hover:not(:disabled) {
+     background: #4338ca;
+   }
+
+   .search-button:disabled {
+     background: #9ca3af;
+     cursor: not-allowed;
+   }
+
+   /* Loading Spinner */
+   .loading-spinner {
+     display: flex;
+     justify-content: center;
+     padding: 32px;
+   }
+
+   .spinner {
+     width: 48px;
+     height: 48px;
+     border: 2px solid #d1d5db;
+     border-top: 2px solid #4f46e5;
+     border-radius: 50%;
+     animation: spin 1s linear infinite;
+   }
+
+   /* Results Section */
+   .results-section {
+     margin-top: 24px;
+   }
+
+   .results-title {
+     font-size: 1.25rem;
+     font-weight: bold;
+     color: #1f2937;
+     border-bottom: 1px solid #d1d5db;
+     padding-bottom: 8px;
+     margin-bottom: 16px;
+   }
+
+   .results-grid {
+     display: grid;
+     gap: 16px;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   }
+
+   .result-card {
+     background: white;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     padding: 16px;
+     border-left: 4px solid #4f46e5;
+     transition: box-shadow 0.2s;
+   }
+
+   .result-card:hover {
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+   }
+
+   .result-title {
+     font-size: 1.125rem;
+     margin: 0 0 8px 0;
+     color: #4f46e5;
+   }
+
+   .result-text {
+     color: #6b7280;
+     margin: 0;
+     line-height: 1.5;
+   }
+
+   /* How It Works Section */
+   .how-to-list {
+     padding-left: 24px;
+     color: #374151;
+     line-height: 1.6;
+     margin-bottom: 24px;
+   }
+
+   .how-to-list li {
+     margin-bottom: 8px;
+   }
+
+   .tips-box {
+     margin-top: 24px;
+     padding: 16px;
+     background: #eff6ff;
+     border-radius: 8px;
+     border: 1px solid #bfdbfe;
+   }
+
+   .tips-title {
+     font-weight: bold;
+     color: #1e40af;
+     margin: 0 0 8px 0;
+   }
+
+   .tips-list {
+     padding-left: 20px;
+     color: #1e40af;
+     line-height: 1.6;
+     margin: 0;
+   }
+
+   .tips-list li {
+     margin-bottom: 4px;
+   }
+
+   /* Animations */
+   @keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+   }
+
+   @keyframes pulse {
+     0%, 100% { transform: scale(1); opacity: 1; }
+     50% { transform: scale(1.05); opacity: 0.7; }
+   }
+
+   /* Responsive Design */
+   @media (max-width: 768px) {
+     .app-container {
+       padding: 16px;
+     }
+
+     .title {
+       font-size: 1.5rem;
+     }
+
+     .results-grid {
+       grid-template-columns: 1fr;
+     }
+   }
+   
