@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# voice-to-text-app
+# 🎤 Voice to Text Search using Wikipedia API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application that allows users to **search Wikipedia using voice input or text input**.  
+The application converts speech into text using browser speech recognition and fetches **real-time information from Wikipedia** through its public API.
 
-## Available Scripts
+<img width="1920" height="1080" alt="Screenshot 2026-01-10 232000" src="https://github.com/user-attachments/assets/493f64ef-d2f3-4b84-bb37-b69e4f597ff5" />
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📌 Features
 
-### `npm test`
+- 🎙️ Voice-to-Text search using browser Speech Recognition
+- ⌨️ Text-based search support
+- 🌐 Real-time Wikipedia search results
+- 🧠 Automatic search after voice input stops
+- 📄 Displays article titles, summaries, and links
+- 💡 Simple and user-friendly interface
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 🛠️ Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend
+- HTML
+- CSS
+- JavaScript
+- Web Speech API (SpeechRecognition)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend / API
+- Wikipedia Public API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## ⚙️ How It Works
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. User clicks on the microphone button 🎤
+2. The browser converts spoken words into text
+3. The captured text is sent as a query to the Wikipedia API
+4. Wikipedia returns matching articles
+5. Results are displayed with:
+   - Title
+   - Short summary
+   - Link to full article
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Users can also **type the query manually** instead of using voice.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
