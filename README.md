@@ -1,4 +1,4 @@
-# voice-to-text-app
+# my-voice-search-app
 # 🎤 Voice to Text Search using Wikipedia API
 
 A web application that allows users to **search Wikipedia using voice input or text input**.  
@@ -25,6 +25,7 @@ The application converts speech into text using browser speech recognition and f
 - HTML
 - CSS
 - JavaScript
+- TypeScript
 - Web Speech API (SpeechRecognition)
 
 ### Backend / API
